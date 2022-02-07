@@ -1,0 +1,51 @@
+﻿@using MvcOnlineTicaret.Models.Siniflar;
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Personel Sayfası</h2>
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>ID</th>
+        <th>ADI</th>
+        <th>SOYADI</th>
+        <th>GÖRSEL</th>
+        <th>DEPARTMAN</th>
+        
+        <th>GÜNCELLE</th>
+        <th>SATIŞLAR</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+<tr>
+    <td>
+        @k.PersonelId
+
+    </td>
+    <td>
+        @k.PersonelAd
+
+    </td>
+    <td>
+        @k.PersonelSoyad
+
+    </td>
+
+    <td>
+      <img src="  @k.PersonelGorsel" style="width:100px;height:100px;"/>
+
+    </td>
+    <td>
+        @k.Departman.DepartmanAd
+
+    </td>
+    
+    <td><a href="/Personel/PersonelGetir/@k.PersonelId" class="btn btn-success">GÜNCELLE</a></td>
+    <td><a href="/Departman/DepartmanPersonelSatis/@k.PersonelId" class="btn btn-success">SATIŞLAR</a></td>
+</tr>
+    }
+</table>
+<a href="/Personel/PersonelEkle" class="btn btn-primary">PERSONEL EKLE</a>

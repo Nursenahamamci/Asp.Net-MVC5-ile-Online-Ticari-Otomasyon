@@ -1,0 +1,50 @@
+﻿@using MvcOnlineTicaret.Models.Siniflar
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>ID</th>
+        <th>AD</th>
+        <th>SOYAD</th>
+        <th>ŞEHİR</th>
+        <th>E-MAİL</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>DETAYLAR</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+<tr>
+    <td>
+        @k.Cariid
+
+    </td>
+    <td>
+        @k.CariAd
+
+    </td>
+    <td>
+        @k.CariSoyad
+
+    </td>
+    <td>
+        @k.CariSehir
+
+    </td>
+    <td>
+        @k.CariMail
+
+    </td>
+    <td><a href="/Cari/CariSil/@k.Cariid" class="btn btn-danger">SİL</a></td>
+    <td><a href="/Cari/CariGetir/@k.Cariid" class="btn btn-success">GÜNCELLE</a></td>
+    <td><a href="/Cari/MusteriSatis/@k.Cariid" class="btn btn-success">SATIŞ GEÇMİŞİ</a></td>
+</tr>
+    }
+</table>
+<a href="/Cari/CariEkle/" class="btn btn-primary">CARİ EKLE</a>

@@ -1,0 +1,39 @@
+﻿@using MvcOnlineTicaret.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "SatisYazdir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<table class="table table-hover">
+    <tr>
+        <th> ID</th>
+        <th>ÜRÜN</th>
+        <th> CARİ </th>
+        <th>PERSONEL</th>
+        <th> FİYAT </th>
+
+        <th> ADET</th>
+        <th>TOPLAM TUTAR</th>
+        <th> TARİH </th>
+
+     
+    </tr>
+    @foreach (var ds in Model)
+    {
+        <tr>
+            <td>@ds.SatisId </td>
+            <td>@ds.Urun.UrunAd</td>
+            <td>@ds.Cariler.CariAd @ds.Cariler.CariSoyad</td>
+            <td>@ds.Personel.PersonelAd @ds.Personel.PersonelSoyad</td>
+            <td>@ds.Fiyat</td>
+            <td>@ds.Adet</td>
+            <td>@ds.ToplamTutar </td>
+            <td>@ds.Tarih</td>
+           
+        </tr>
+    }
+
+</table>
+<button class="btn btn-danger" style="background-color:dodgerblue">YAZDIR</button>

@@ -1,0 +1,42 @@
+﻿@using MvcOnlineTicaret.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "MusteriSatis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>MusteriSatis</h2>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cari: @ViewBag.dcari</li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        <th> SATIŞ ID</th>
+        <th>ÜRÜN</th>
+        <th>PERSONEL</th>
+        <th> FİYAT </th>
+        
+        <th> ADET</th>
+        <th>TOPLAM TUTAR</th>
+        <th> TARİH </th>
+
+        <th>YAZDIR</th>
+    </tr>
+    @foreach (var ds in Model)
+    {
+        <tr>
+            <td>@ds.SatisId </td>
+            <td>@ds.Urun.UrunAd</td>
+            
+            <td>@ds.Personel.PersonelAd @ds.Personel.PersonelSoyad</td>
+            <td>@ds.Fiyat</td>
+            <td>@ds.Adet</td>
+            <td>@ds.ToplamTutar </td>
+
+            <td>@ds.Tarih</td>
+            <td><a href="#" class=" btn btn-default" style="background-color:dodgerblue">YAZDIR</a></td>
+        </tr>
+    }
+
+</table>
